@@ -1,0 +1,39 @@
+# Python 3.10+ recommended (3.11 used in our environment).
+# These are the package versions installed in the conda environment used
+# to produce the paper numbers (verified with `pip list`). torch and
+# torchvision are CUDA-13.0 builds; install from the matching PyTorch
+# index for your hardware (https://pytorch.org/get-started/locally/) if
+# your CUDA driver differs.
+
+# --- deep-learning stack ---------------------------------------------------
+torch==2.10.0
+torchvision==0.25.0
+monai==1.5.2
+
+# --- MRI I/O and transforms ------------------------------------------------
+nibabel==5.3.3
+SimpleITK==2.5.3
+torchio==0.21.3
+pydicom==3.0.1
+
+# --- numerics, plotting, dataframes ---------------------------------------
+# numpy is pinned to 1.x because pyradiomics' compiled C extensions in our
+# environment were built against the NumPy 1.x ABI. PyRadiomics 3.1 from
+# PyPI does support NumPy 2.x, but if you upgrade numpy you may also need
+# to reinstall pyradiomics to match.
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.17.0
+matplotlib==3.10.8
+scikit-image==0.26.0
+scikit-learn==1.8.0
+Pillow==12.0.0
+joblib==1.5.3
+tqdm==4.67.3
+
+# --- radiomics -------------------------------------------------------------
+# The PyPI release (>=3.1.0) supports NumPy 2.x. If `pip install pyradiomics`
+# fails on your platform, install the latest from the upstream repository
+# (this is what we used; it reports as 3.1.1.dev):
+#     pip install git+https://github.com/AIM-Harvard/pyradiomics.git
+pyradiomics>=3.1.0
