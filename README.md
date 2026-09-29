@@ -4,8 +4,11 @@ Radiomic-stability evaluation of data-agnostic augmentations (MixUp, CutMix, AFA
 
 This repository builds directly on
 [MIAGroupUT/augmentations-for-the-unknown](https://github.com/MIAGroupUT/augmentations-for-the-unknown)
-(MIDL 2025). The `augmentations/` modules (MixUp, CutMix, AFA, Dual
-Instance-Batch Normalisation) are derived from that codebase. The
+(MIDL 2025). The `augmentations/` AFA and Dual Instance-Batch
+Normalisation modules are derived from that codebase; the MixUp and
+CutMix modules are derived from [nnU-Net](https://github.com/MIC-DKFZ/nnUNet)
+(DKFZ). Both upstreams are Apache-2.0 — see [NOTICE](NOTICE) for the
+required attributions. The
 upstream `medg/`, `ml/`, and `nnunet/` trees and the helper scripts
 `gen_med_g.py` / `model_surgery.py` are **not** carried in this repo —
 they are not used by the paper pipeline, and the upstream copy is
@@ -37,7 +40,7 @@ This work uses code from and credit is due to:
 - **Mendeley Data.** The placental MRI dataset used in this work is hosted at
   <https://data.mendeley.com/datasets/284gwmf5bh/1>.
 
-If you use this code, please cite the upstream MIDL 2025 paper (Vaish et al. 2025) and the cohort source paper (Huang et al. 2024). See [CITATION.cff](CITATION.cff). The repository's own paper is currently under review; the citation file will be updated once it is published.
+If you use this code, please cite this repository's paper (Šojo et al., ELMAR 2026 — see [CITATION.cff](CITATION.cff)), along with the upstream MIDL 2025 paper (Vaish et al. 2025) and the cohort source paper (Huang et al. 2024). The ELMAR 2026 paper is accepted and awaiting publication in IEEE Xplore; the DOI will be added to the citation file once available.
 
 ---
 
@@ -259,7 +262,7 @@ Module 4 of the toolkit (Merge Datasets) concatenates BTFE and ssh\_TSE into a s
 |---|---|
 | `pas_preprocessing_toolkit.py` | Interactive dataset-preparation toolkit (preprocess, splits, overlays, merge). Used to build `dataset/resized/DATASET_BTFE` and `…SSH_TSE` from the raw Mendeley archive — see "Dataset preparation" above. |
 | `train_placenta_2d_monai_v8.py` | Main training and inference entry point (MONAI). |
-| `augmentations/` | MixUp, CutMix, AFA, and Dual Instance-Batch Normalisation modules (derived from the MIAGroupUT codebase). |
+| `augmentations/` | MixUp, CutMix, AFA, and Dual Instance-Batch Normalisation modules (AFA + Dual-Norm derived from MIAGroupUT; MixUp/CutMix from nnU-Net — see [NOTICE](NOTICE)). |
 | `corrupt_test_set.py` | Generates corrupted test sets at severity level 3 (5 corruptions × 2D / 3D modes). |
 | `compute_radiomics.py` | Extracts 102 PyRadiomics features per (patient, mask). |
 | `compare_radiomics.py` | Aggregates per-feature errors into the comparison CSVs. |
@@ -274,8 +277,9 @@ Module 4 of the toolkit (Merge Datasets) concatenates BTFE and ssh\_TSE into a s
 | `paper/make_figures_3d.py` | Regenerates the paper's two figures: Figure 1 (per-patient median feature-error box plot) and Figure 2 (Dice-vs-error scatter). |
 | `tests/test_smoke.py` | Imports + audit-pipeline smoke test. |
 | `requirements.txt` | Pinned package versions. |
-| `CITATION.cff` | Upstream MIDL 2025 + cohort paper citations. |
+| `CITATION.cff` | This paper's citation (ELMAR 2026, DOI pending) + upstream MIDL 2025 and cohort references. |
 | `LICENSE` | Apache 2.0 (same as upstream). |
+| `NOTICE` | Attribution for the Apache-2.0 code derived from MIAGroupUT (AFA + Dual-Norm) and nnU-Net (MixUp/CutMix). |
 
 Generated at runtime and gitignored: `dataset/`, `runs/`, `log/`, `radiomics/`, `shareable/`, `comparison_results/`, `paper/figures/`, `paper/audit_3d_results.json`.
 
@@ -496,4 +500,4 @@ All numbers above are reproduced exactly by `python paper/audit_numbers.py` and 
 
 ## License
 
-Apache 2.0. Same as the upstream MIAGroupUT codebase. See [LICENSE](LICENSE).
+**Apache License 2.0** — see [LICENSE](LICENSE) and [NOTICE](NOTICE). The `augmentations/` modules are derived and modified from Apache-2.0 upstream code (AFA + Dual Instance-Batch Normalisation — MIA Group-UT; MixUp / CutMix — nnU-Net / DKFZ), so this project is distributed under the same permissive license; the NOTICE file records the required attributions.

@@ -1,0 +1,95 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below (preferred) and/or this repository."
+title: "pas-mri-augmentation-radiomics"
+abstract: >-
+  Code for a radiomic-stability evaluation of data-agnostic augmentations (MixUp, CutMix,
+  Auxiliary Fourier-basis Augmentation, and their combinations) for U-Net++ segmentation of
+  the placenta in MRI. Trains the segmentation models, evaluates them in-domain and across
+  modalities, applies five clinically-motivated MRI corruptions at severity level 3, extracts
+  102 PyRadiomics features per (patient, mask), and quantifies how segmentation errors
+  propagate to the radiomic feature signature.
+type: software
+version: "1.0.0"
+license: Apache-2.0
+repository-code: "https://github.com/R0b3r7S/pas-mri-augmentation-radiomics"
+keywords:
+  - placenta accreta spectrum
+  - radiomics
+  - data augmentation
+  - out-of-distribution robustness
+  - MRI
+  - medical image segmentation
+  - PyRadiomics
+authors:
+  - family-names: "Šojo"
+    given-names: "Robert"
+    email: "robert.sojo@ferit.hr"
+    affiliation: "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek (FERIT), Josip Juraj Strossmayer University of Osijek"
+  - family-names: "Benčević"
+    given-names: "Marin"
+    affiliation: "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek (FERIT), Josip Juraj Strossmayer University of Osijek"
+  - family-names: "Galić"
+    given-names: "Irena"
+    affiliation: "Faculty of Electrical Engineering, Computer Science and Information Technology Osijek (FERIT), Josip Juraj Strossmayer University of Osijek"
+  - family-names: "Košuta Petrović"
+    given-names: "Maja"
+    affiliation: "Faculty of Medicine Osijek, Josip Juraj Strossmayer University of Osijek"
+  - family-names: "Kopačin"
+    given-names: "Vjekoslav"
+    affiliation: "Faculty of Medicine Osijek, Josip Juraj Strossmayer University of Osijek"
+preferred-citation:
+  type: conference-paper
+  title: "Radiomics-Based Evaluation of Data-Agnostic Augmentations for Placental MRI Segmentation under Image Corruptions"
+  year: 2026
+  conference:
+    name: "68th International Symposium ELMAR-2026"
+    city: "Zadar"
+    country: "HR"
+  publisher:
+    name: "IEEE"
+  notes: "Accepted / camera-ready. Update with volume, pages and DOI upon publication in IEEE Xplore."
+  authors:
+    - family-names: "Šojo"
+      given-names: "Robert"
+    - family-names: "Benčević"
+      given-names: "Marin"
+    - family-names: "Galić"
+      given-names: "Irena"
+    - family-names: "Košuta Petrović"
+      given-names: "Maja"
+    - family-names: "Kopačin"
+      given-names: "Vjekoslav"
+references:
+  - type: conference-paper
+    title: "Data-Agnostic Augmentations for Unknown Variations: Out-of-Distribution Generalisation in MRI Segmentation"
+    year: 2025
+    notes: "Medical Imaging with Deep Learning (MIDL) 2025; arXiv:2505.10223. Source of the AFA and Dual Instance-Batch Normalisation modules."
+    authors:
+      - family-names: "Vaish"
+        given-names: "Puru"
+      - family-names: "Meister"
+        given-names: "Felix"
+      - family-names: "Heimann"
+        given-names: "Tobias"
+      - family-names: "Brune"
+        given-names: "Christoph"
+      - family-names: "Wolterink"
+        given-names: "Jelmer M."
+  - type: article
+    title: "Nomogram model for predicting invasive placenta in patients with placenta previa: integrating MRI findings and clinical characteristics"
+    year: 2024
+    journal: "Scientific Reports"
+    volume: 14
+    issue: 1
+    start: 200
+    doi: "10.1038/s41598-023-50900-z"
+    notes: "Source of the placental-MRI cohort used in this work."
+    authors:
+      - family-names: "Huang"
+        given-names: "Fang"
+      - family-names: "Lyu"
+        given-names: "Guo-Rong"
+      - family-names: "Lai"
+        given-names: "Qing-Quan"
+      - family-names: "Li"
+        given-names: "Yuan-Zhe"
